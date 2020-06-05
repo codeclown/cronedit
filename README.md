@@ -2,6 +2,18 @@
 
 > an interactive command line editor for crontab
 
+```bash
+$ ./bin/cronedit
+1 |
+2 | # https://stackoverflow.com/a/5823331/239527
+3 | SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.WvQxE0oPYh/Listeners
+4 | >  0  */6  *  *  *  bash /asd/backup.sh >/asd/backup.log 2>&1
+5 | #  *  *    *  *  *  bash /tools/wip/todo.sh
+6 |
+cronedit   <arrow keys> move   <s> save and quit   <q> quit   <enter> edit minute
+           <n> new   <c> comment    <d> duplicate   <r> remove
+```
+
 ## This project is in BETA!
 
 **Note that this is an early version of cronedit. Versions 0.X.X should be considered beta versions and probably not suited for use in critical production environments. Recommended for use only in testing environments.**
