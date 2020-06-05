@@ -139,6 +139,9 @@ int main(int argc, char* argv[]) {
     crontab = read_file(args.filename);
   } else {
     crontab = exec("crontab -l 2>&1");
+    if (crontab.substr(0, 14) == "no crontab for") {
+      crontab = "";
+    }
     if (crontab.substr(0, 23) == "crontab: no crontab for") {
       crontab = "";
     }
