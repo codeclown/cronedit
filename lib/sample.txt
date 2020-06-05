@@ -1,0 +1,6 @@
+
+# https://stackoverflow.com/a/5823331/239527
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.WvQxE0oPYh/Listeners
+0 */6 * * * bash /asd/backup.sh >/asd/backup.log 2>&1
+#* * * * * bash /asd/backup.sh >/asd/backup.log 2>&1
+
