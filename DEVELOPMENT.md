@@ -49,3 +49,4 @@ See [`.github/workflows/build.yml`](.github/workflows/build.yml).
 3. Push with tags `git push --tags`
 4. GitHub action detects the new tag and creates a draft release with attached binaries. Review and publish it here:
    https://github.com/codeclown/cronedit/releases
+5. Update latest binary download URLs in README.md
