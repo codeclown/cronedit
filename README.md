@@ -3,7 +3,7 @@
 > an interactive command line editor for crontab
 
 ```bash
-$ ./bin/cronedit
+$ cronedit
 1 |
 2 | # https://stackoverflow.com/a/5823331/239527
 3 | SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.WvQxE0oPYh/Listeners
