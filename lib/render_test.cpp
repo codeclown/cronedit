@@ -541,25 +541,25 @@ void test_render_diff() {
     previous = "one\ntwo2";
     rendered = replace_ansi(render_diff(current, previous), true);
     debug_print_ui(rendered);
-    assert(rendered == "{CLEAR_LINE}{CURSOR_UP}one\ntwo1");
+    assert(rendered == "{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_LEFT}one\ntwo1");
 
     current = "one\ntwo\nthree1";
     previous = "one\ntwo\nthree2";
     rendered = replace_ansi(render_diff(current, previous), true);
     debug_print_ui(rendered);
-    assert(rendered == "{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_UP}one\ntwo\nthree1");
+    assert(rendered == "{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_LEFT}one\ntwo\nthree1");
 
     current = "";
     previous = "one\ntwo\nthree2";
     rendered = replace_ansi(render_diff(current, previous), true);
     debug_print_ui(rendered);
-    assert(rendered == "{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_UP}");
+    assert(rendered == "{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_UP}{CLEAR_LINE}{CURSOR_LEFT}");
 
     current = "one\ntwo\nthree1";
     previous = "";
     rendered = replace_ansi(render_diff(current, previous), true);
     debug_print_ui(rendered);
-    assert(rendered == "one\ntwo\nthree1");
+    assert(rendered == "{CLEAR_LINE}{CURSOR_LEFT}one\ntwo\nthree1");
   }
 }
 

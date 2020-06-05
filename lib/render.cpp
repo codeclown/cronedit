@@ -21,6 +21,7 @@ std::string DIM = "\033[2m";
 
 std::string CLEAR_LINE = "\033[2K";
 std::string CURSOR_UP = "\033[1A";
+std::string CURSOR_LEFT = "\033[G";
 
 std::string pad_right(std::string value, int amount) {
   for (int i = value.length() + 1; i <= amount; i++) {
@@ -321,8 +322,11 @@ std::string render_diff(std::string current, std::string previous) {
   }
   std::stringstream output;
   for(unsigned i = 0; i < lines; ++i) {
-    output << CLEAR_LINE << CURSOR_UP;
+    output << CLEAR_LINE;
+    output << CURSOR_UP;
   }
+  output << CLEAR_LINE;
+  output << CURSOR_LEFT;
   output << current;
   return output.str();
 }
@@ -370,6 +374,9 @@ std::string replace_ansi(std::string value, bool with_string) {
       } else if (value.substr(i, CURSOR_UP.length()) == CURSOR_UP) {
         final += with_string ? "{CURSOR_UP}" : "";
         i += CURSOR_UP.length() - 1;
+      } else if (value.substr(i, CURSOR_LEFT.length()) == CURSOR_LEFT) {
+        final += with_string ? "{CURSOR_LEFT}" : "";
+        i += CURSOR_LEFT.length() - 1;
       } else {
         final += "";
       }
