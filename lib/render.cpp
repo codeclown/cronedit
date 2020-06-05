@@ -42,8 +42,16 @@ std::string render_logo() {
   return BOLD + "cronedit" + RESET;
 }
 
+std::string render_item_begin(std::string line_number, int width) {
+  return DIM + pad_left(line_number, width) + " | " + RESET;
+}
+
 std::string render_item_begin(int line_number, int width) {
-  return DIM + pad_left(std::to_string(line_number), width) + " | " + RESET;
+  return render_item_begin(std::to_string(line_number), width);
+}
+
+std::string render_blank_slate() {
+  return DIM + "Empty crontab. Press <n> to add a job." + RESET;
 }
 
 std::string render_quitting(std::string saved_file, std::string backup_file) {
@@ -262,7 +270,11 @@ std::string render_state(State& state, int terminal_width, int terminal_height) 
 
   int space_for = terminal_height - 5;
   VisibleItemIndexes item_indexes = calculate_visible_item_indexes(space_for, active_item, (int)items.size());
-  if (item_indexes.begin_at >= 0) {
+  if (item_indexes.begin_at == -1) {
+    output << render_item_begin(" ", 1);
+    output << render_blank_slate();
+    output << std::endl;
+  } else {
     int longest_line_number = std::to_string(item_indexes.end_at).length();
     int space_on_line = terminal_width - longest_line_number - 3;
     for (int index = item_indexes.begin_at; index < item_indexes.end_at; ++index) {

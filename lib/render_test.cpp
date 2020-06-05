@@ -30,6 +30,17 @@ void test_very_simple_ones() {
     assert(rendered ==
       "{DIM} 1 | {RESET}"
     );
+    rendered = replace_ansi(render_item_begin(" ", 1), true);
+    debug_print_ui(rendered);
+    assert(rendered ==
+      "{DIM}  | {RESET}"
+    );
+
+    rendered = replace_ansi(render_blank_slate(), true);
+    debug_print_ui(rendered);
+    assert(rendered ==
+      "{DIM}Empty crontab. Press <n> to add a job.{RESET}"
+    );
 
     rendered = replace_ansi(render_error_message("foobar"), true);
     debug_print_ui(rendered);
@@ -383,6 +394,7 @@ void test_render_state() {
     debug_print_ui(rendered);
     assert(
       rendered == "\
+  | Empty crontab. Press <n> to add a job.\n\
 cronedit   <arrow keys> move   <s> save and quit   <q> quit\n\
            <n> new\n\n\
 ");

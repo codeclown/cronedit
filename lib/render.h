@@ -7,6 +7,10 @@ std::string render_logo();
 
 std::string render_item_begin(int line_number, int width);
 
+std::string render_item_begin(std::string, int width);
+
+std::string render_blank_slate();
+
 std::string render_quitting(std::string saved_file, std::string backup_file);
 
 struct VisibleItemIndexes {
