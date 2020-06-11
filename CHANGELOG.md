@@ -1,6 +1,6 @@
 # Changelog
 
-## Next version
+## v0.2.0
 
 - Detect "no crontab for X"
 - Display a message when the file is empty
