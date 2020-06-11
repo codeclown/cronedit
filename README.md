@@ -32,13 +32,13 @@ crontab -l > foobar.txt
 For MacOS:
 
 ```bash
-curl -L -o cronedit https://github.com/codeclown/cronedit/releases/download/v0.1.0/cronedit-macos
+curl -L -o cronedit https://github.com/codeclown/cronedit/releases/download/v0.2.0/cronedit-macos
 ```
 
 For Linux:
 
 ```bash
-curl -L -o cronedit https://github.com/codeclown/cronedit/releases/download/v0.1.0/cronedit-linux
+curl -L -o cronedit https://github.com/codeclown/cronedit/releases/download/v0.2.0/cronedit-linux
 ```
 
 All pre-built binaries are available under [Releases](https://github.com/codeclown/cronedit/releases).
@@ -47,7 +47,7 @@ All pre-built binaries are available under [Releases](https://github.com/codeclo
 
 ```shell
 $ cronedit --help
-cronedit v0.1.0
+cronedit v0.2.0
 
 Usage:
   ./bin/cronedit

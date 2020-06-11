@@ -45,8 +45,10 @@ See [`.github/workflows/build.yml`](.github/workflows/build.yml).
 ### Making a release
 
 1. Bump the version in [`lib/version.h`](lib/version.h), e.g. `#define CRONEDIT_VERSION "0.1.1"`
-2. Add a git tag, e.g. `git tag v0.1.1`
-3. Push with tags `git push --tags`
-4. GitHub action detects the new tag and creates a draft release with attached binaries. Review and publish it here:
+2. Update [`CHANGELOG.md`](CHANGELOG.md)
+3. Make a commit and `git push`
+4. Add a git tag, e.g. `git tag v0.1.1`
+5. Push with tags `git push --tags`
+6. GitHub action detects the new tag and creates a draft release with attached binaries. Review and publish it here:
    https://github.com/codeclown/cronedit/releases
-5. Update latest binary download URLs in README.md
+7. Update latest binary download URLs in README.md
